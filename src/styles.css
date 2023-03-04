@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+.weatherBlock {
+  background-color: #ccc;
+  margin: 0px 10px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.titleBlock {
+  margin: 10px 10px 0px 10px;
+  font-weight: bold;
+}
