@@ -1,31 +1,19 @@
 import {
   Stack,
   FormControl,
-  InputLabel,
   Select,
   MenuItem,
   FormHelperText
 } from "@mui/material";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { SeachButton } from "./SeachButton";
 
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-  area: number | "";
+type AreaProps = {
+  area: string;
 };
 
-export const SelectArea = () => {
-  const { control, handleSubmit } = useForm<Inputs>();
-
-  const validationRules = {
-    area: {
-      validate: (value: number | "") =>
-        value !== "" || "エリアを指定してください"
-    }
-  };
-
-  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+export const SelectArea = ({ area }: AreaProps) => {
+  const { control, handleSubmit } = useForm<AreaProps>();
+  const onSubmit: SubmitHandler<AreaProps> = (data: AreaProps) => {
     console.log(`submit: ${data.area}`);
   };
 
@@ -41,11 +29,9 @@ export const SelectArea = () => {
         <Controller
           name="area"
           control={control}
-          rules={validationRules.area}
           render={({ field, fieldState }) => (
             <FormControl fullWidth error={fieldState.invalid}>
-              <InputLabel id="area-label">地域</InputLabel>
-              <Select size="small" labelId="area-label" label="地域" {...field}>
+              <Select id={area} className="area" size="small" {...field}>
                 <MenuItem value="" sx={{ color: "gray" }}>
                   未選択
                 </MenuItem>
@@ -110,7 +96,6 @@ export const SelectArea = () => {
             </FormControl>
           )}
         />
-        <SeachButton />
       </Stack>
     </>
   );
