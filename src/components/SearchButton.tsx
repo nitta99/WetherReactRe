@@ -1,17 +1,9 @@
-import { GetWeather } from "./GetWeather";
 import { Button as MUIButton } from "@mui/material";
-
-const getWeather = () => {};
 
 export const SearchButton = () => {
   return (
     <>
-      <MUIButton
-        size="small"
-        variant="contained"
-        type="submit"
-        onClick={GetWeather}
-      >
+      <MUIButton size="small" variant="contained" type="submit">
         検索
       </MUIButton>
     </>
