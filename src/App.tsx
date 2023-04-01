@@ -3,7 +3,6 @@ import { SearchConditions } from "./components/SearchConditions";
 import { DayWeather } from "./components/DayWeather";
 import { useState } from "react";
 import { SelectChangeEvent } from "@mui/material";
-
 export const App = () => {
   const [area, setArea] = useState<string | HTMLInputElement>();
   const [kyo, setKyo] = useState();
