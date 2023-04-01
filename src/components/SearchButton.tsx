@@ -1,11 +1,18 @@
-import { Button as MUIButton } from "@mui/material";
+import { MouseEvent } from "react";
 
-export const SearchButton = () => {
+type SearchButtonProps = {
+  onClick: (event: MouseEvent<HTMLInputElement>) => void;
+};
+
+export const SearchButton = ({ onClick }: SearchButtonProps) => {
   return (
     <>
-      <MUIButton size="small" variant="contained" type="submit">
-        検索
-      </MUIButton>
+      <input
+        className="searchButton"
+        type="button"
+        value="検索"
+        onClick={onClick}
+      />
     </>
   );
 };
